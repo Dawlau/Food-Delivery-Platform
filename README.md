@@ -8,9 +8,9 @@ Made by Andrei Blahovici, Student at University of Bucharest
 
 ## Packages
 
-## DataStructures
+### DataStructures
 
-### Contains the following classes:
+Contains the following classes:
 
 ###### - Pair : implements a generic pair class
 
