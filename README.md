@@ -3,8 +3,8 @@ Made by Andrei Blahovici, Student at University of Bucharest
 
 ## Main classes
 
-###- Main : defines the entry point of the app
-###- App : contains the implementation of the CLI
+- Main : defines the entry point of the app
+- App : contains the implementation of the CLI
 
 ## Packages
 
@@ -16,11 +16,11 @@ Made by Andrei Blahovici, Student at University of Bucharest
 
 ### Enums
 
-####Contains an Enum called ProductType which defines the values a product type can take (see the Product class)
+Contains an Enum called ProductType which defines the values a product type can take (see the Product class)
 
 ### Interfaces
 
-####Contains the following interfaces:
+Contains the following interfaces:
 
 ###### - courierActions : defines the actions a courier can make
 ````
@@ -36,7 +36,7 @@ showOrderHistory : allows the user to see his own history of orders
 
 ### Models
 
-####Contains the following classes:
+Contains the following classes:
 
 ###### - Person : abstract class that defines the base for every employer and client
 ````
@@ -91,7 +91,7 @@ toString : nice print of objects
 
 ### Services
 
-####Contains the following classes:
+Contains the following classes:
 
 ###### - CouriersService : service for courier maintenance
 ````
