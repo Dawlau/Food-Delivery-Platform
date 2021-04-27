@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class UsersService {
 
-    private static ArrayList<User> users = new ArrayList<User>();
+    private final static ArrayList<User> users = new ArrayList<User>();
 
     public static void fetchUsers(){
 

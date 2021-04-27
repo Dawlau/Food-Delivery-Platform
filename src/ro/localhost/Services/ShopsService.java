@@ -11,7 +11,7 @@ import ro.localhost.Models.ShopMenu;
 
 public class ShopsService {
 
-    static private TreeSet<Shop> shops = new TreeSet<>();
+    static final private TreeSet<Shop> shops = new TreeSet<>();
 
     public static void fetch_ShopsData(){ // will read from a file or a database in the future
 

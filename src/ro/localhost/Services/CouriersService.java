@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class CouriersService {
 
-    private static ArrayList<Courier> couriers = new ArrayList<>();
+    private final static ArrayList<Courier> couriers = new ArrayList<>();
 
     public static void fetchCouriers(){
 

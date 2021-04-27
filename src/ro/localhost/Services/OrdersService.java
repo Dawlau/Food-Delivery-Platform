@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class OrdersService {
 
-    private static ArrayList<Pair<User, Order>> orders = new ArrayList<>();
+    private final static ArrayList<Pair<User, Order>> orders = new ArrayList<>();
 
     public static void addOrder(User user, Order order){
         orders.add(new Pair<>(user, order));
