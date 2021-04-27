@@ -1,6 +1,8 @@
 package ro.localhost.Models;
 import ro.localhost.Interfaces.userActions;
 import ro.localhost.Services.OrdersService;
+import ro.localhost.Services.csvReader;
+import ro.localhost.Services.csvWriter;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -47,10 +49,23 @@ public class User extends Person implements userActions{
     }
 
 
+    private void traceOrder(Order order){
+
+        String text = this.firstName + " " + this.lastName + " placed and order," + order.getDate();
+
+        csvReader r = csvReader.getInstance();
+
+        String content = r.readFile("csvFiles/OrdersTrace.csv");
+        content += text + "\n";
+
+        csvWriter w = csvWriter.getInstance();
+        w.writeToFile(content, "csvFiles/OrdersTrace.csv");
+    }
+
     @Override
     public void placeOrder(Shop shop, Courier courier) {
 
-        currentOrder = new Order(new SimpleDateFormat("dd-MM-yyyy").format(new Date()), shop.getName(), courier.getFirstName(), courier.getLastName(), new ArrayList<>());
+        currentOrder = new Order(new SimpleDateFormat("dd-MM-yyyy k:m:s").format(new Date()), shop.getName(), courier.getFirstName(), courier.getLastName(), new ArrayList<>());
 
         HashMap<Product, Integer> products = cart.getProducts();
         for(Product product : products.keySet())
@@ -58,6 +73,8 @@ public class User extends Person implements userActions{
                 currentOrder.addProduct(product);
 
             cart = new Cart();
+
+            traceOrder(currentOrder);
 
         OrdersService.addOrder(this, currentOrder);
         orderHistory.add(new Order(currentOrder));
