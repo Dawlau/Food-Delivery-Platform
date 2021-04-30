@@ -11,11 +11,11 @@ public class CouriersService {
     public static void fetchCouriers(){
 
         Courier courier = new Courier(
-                "Cosmin",
-                "Iacob",
-                "15-05-2000",
+                "Claudiu",
+                "Costeniuc",
+                "23.01.2001",
                 "0751242345",
-                "iacobcosmin@gmail.com"
+                "claudiucosteniuc@gmail.com"
         );
 
         couriers.add(courier);
