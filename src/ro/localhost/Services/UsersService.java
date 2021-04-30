@@ -5,6 +5,7 @@ import ro.localhost.Models.Order;
 import ro.localhost.Models.User;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class UsersService {
 
@@ -12,18 +13,40 @@ public class UsersService {
 
     public static void fetchUsers(){
 
-        User user = new User(
-            "Andrei",
-                "Blahovici",
-                "25-11-2000",
-                "0752411523",
-                "blahoviciandrei1@gmail.com",
-                new Cart(),
-                new ArrayList<Order>(),
-                new Order()
-        );
+        csvReader r = csvReader.getInstance();
+        String content = r.readFile("csvFiles/Users.csv");
 
-        users.add(user);
+        String[] lines = content.split("\n");
+
+        for(int i = 1; i < lines.length; ++i){
+            String[] fields = lines[i].split(",");
+
+            User user = new User(
+                    fields[0], // first name
+                    fields[1], // last name
+                    fields[2], // birthday
+                    fields[3], // phone number
+                    fields[4], // email
+                    new Cart(),
+                    new ArrayList<>(),
+                    new Order()
+            );
+
+            users.add(user);
+        }
+
+    }
+
+    public static User findByName(String firstName, String lastName){
+
+        for(User user : users)
+            if(user.getFirstName().toLowerCase().equals(firstName.toLowerCase())
+                                                &&
+                    user.getLastName().toLowerCase().equals(lastName.toLowerCase())
+            ){
+                return user;
+            }
+        return null;
     }
 
     public static User getFirstUser(){

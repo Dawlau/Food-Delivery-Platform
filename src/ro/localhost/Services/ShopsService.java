@@ -1,8 +1,8 @@
 package ro.localhost.Services;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.TreeSet;
+import java.util.*;
+import java.util.List;
 
 import ro.localhost.Enums.ProductType;
 import ro.localhost.Models.Product;
@@ -13,93 +13,79 @@ public class ShopsService {
 
     static final private TreeSet<Shop> shops = new TreeSet<>();
 
+    // Map<ProductName, Product>
+    static final private Map<String, Product> products = new HashMap<>();
+
+    // Map<ShopName, Menu>
+    static final private Map<String, ShopMenu> menus = new HashMap<>();
+
+    private static void fetch_Products(){
+
+        csvReader r = csvReader.getInstance();
+        String content = r.readFile("csvFiles/Products.csv");
+
+        String[] lines = content.split("\n");
+
+        for(int i = 1; i < lines.length; ++i){
+            String[] fields = lines[i].split(",");
+
+            Product product = new Product(
+                    Double.parseDouble(fields[1]), // price
+                    fields[0], // name
+                    fields[2], // description
+                    fields[3].equals("FOOD") ? ProductType.FOOD : ProductType.DRINK // type
+            );
+
+            products.put(product.getName(), product);
+        }
+    }
+
+    private static void fetch_Menus(){
+
+        csvReader r = csvReader.getInstance();
+        String content = r.readFile("csvFiles/ShopMenus.csv");
+
+        String[] lines = content.split("\n");
+
+        for(int i = 1; i < lines.length; ++i){
+            String[] fields = lines[i].split(",");
+
+            String productName = fields[0];
+            String shopName = fields[1];
+
+            if(!menus.containsKey(shopName))
+                menus.put(shopName, new ShopMenu());
+
+            menus.get(shopName).add(products.get(productName));
+        }
+    }
+
+    private static void fetch_Shops(){
+
+        csvReader r = csvReader.getInstance();
+        String content = r.readFile("csvFiles/Shops.csv");
+
+        String[] lines = content.split("\n");
+
+        for(int i = 1; i < lines.length; ++i) {
+            String[] fields = lines[i].split(",");
+
+            Shop shop = new Shop(
+                    fields[0], // name
+                    menus.get(fields[0]), // menu
+                    fields[1], // phone number
+                    fields[2], // address
+                    Double.parseDouble(fields[3]) // rating
+            );
+
+            shops.add(shop);
+        }
+    }
+
     public static void fetch_ShopsData(){ // will read from a file or a database in the future
-
-        Product pizza = new Product(
-                25.0,
-                "Pizza",
-                "This is a delicious pizza",
-                ProductType.FOOD
-        );
-
-        Product bagel = new Product(
-                2.0,
-                "Bagel",
-                "Simple bagel",
-                ProductType.FOOD
-        );
-
-        Product sandwich = new Product(
-                6.0,
-                "Sandwich",
-                "Sandwich with cheese and ham",
-                ProductType.FOOD
-        );
-
-        Product cola = new Product(
-                5.0,
-                "Cocacola",
-                "Classic coca cola",
-                ProductType.DRINK
-        );
-
-        Product donut = new Product(
-                3.0,
-                "Donut",
-                "Jam donut",
-                ProductType.FOOD
-        );
-
-        Product sprite = new Product(
-                4.5,
-                "Sprite",
-                "Diet Sprite",
-                ProductType.DRINK
-        );
-
-        ShopMenu menu = new ShopMenu();
-        menu.add(sprite);
-        menu.add(cola);
-        menu.add(pizza);
-        menu.add(bagel);
-
-        ShopMenu lucaMenu = new ShopMenu(menu);
-
-        Shop shop1 = new Shop(
-                "Luca",
-                lucaMenu,
-                "0752411523",
-                "Langa facultate",
-                4.65
-        );
-
-        ShopMenu pizzahutMenu = new ShopMenu(menu);
-        pizzahutMenu.remove(bagel);
-        pizzahutMenu.add(sandwich);
-
-        Shop shop2 = new Shop(
-                "PizzaHut",
-                pizzahutMenu,
-                "07124231524",
-                "Mai jos de facultate",
-                4.05
-        );
-
-        ShopMenu luca2Menu = new ShopMenu(menu);
-        luca2Menu.remove(sprite);
-
-
-        Shop shop3 = new Shop(
-                "CelalaltLuca",
-                luca2Menu,
-                "07351251264",
-                "Langa Luca",
-                3.09
-        );
-
-        shops.add(shop1);
-        shops.add(shop2);
-        shops.add(shop3);
+        fetch_Products();
+        fetch_Menus();
+        fetch_Shops();
     }
 
     public static void listShops(){
@@ -112,7 +98,7 @@ public class ShopsService {
     public static Shop findByName(String shopName){
 
         for(Shop shop : shops)
-            if (shop.getName().equals(shopName)) {
+            if (shop.getName().toLowerCase().equals(shopName.toLowerCase())) {
                 return shop;
             }
         return null;
