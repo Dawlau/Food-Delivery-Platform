@@ -14,7 +14,7 @@ public class App {
 
     private static void menu(){
 
-        System.out.println("Hello, what do you want to do? (select number)");
+        System.out.println("What do you want to do? (select number)");
         System.out.println("0) Exit");
         System.out.println("1) List shops");
         System.out.println("2) Select shop (by name)");
@@ -41,20 +41,71 @@ public class App {
         courier.takeOrder();
     }
 
+    private static User login(){
+
+        Scanner scanner = new Scanner(System.in);
+
+        String regex = ".*[^A-Za-z].*";
+
+        while(true){
+
+            System.out.print("Hi! What's your name?: ");
+
+            String input = scanner.nextLine();
+            if(!input.contains(" ")) {
+                System.out.println("Invalid input");
+                continue;
+            }
+
+            System.out.println(input);
+            String[] _input = input.split(" ");
+
+            if(_input.length > 2){
+                System.out.println("Invalid input");
+                continue;
+            }
+
+            String firstName = _input[0];
+            String lastName = _input[1];
+
+            if(firstName.matches(regex) || lastName.matches(regex)){
+                System.out.println("Invalid input");
+                continue;
+            }
+
+            User user = UsersService.findByName(firstName, lastName);
+            if(user != null)
+                return user;
+        }
+    }
+
     public static void run(){
 
         fetchData();
 
-        Scanner scanner = new Scanner(System.in);
+        User user = login();
+
+        System.out.println("Welcome " + user + "!");
+
+
 
         Shop currentShop = null;
-        User user = UsersService.getFirstUser();
         Courier courier = CouriersService.getFirstCourier();
 
         while (true) {
             menu();
             System.out.print("Enter code: ");
-            int code = scanner.nextInt();
+
+            Scanner scanner = new Scanner(System.in);
+
+            int code;
+
+            try{
+                code = scanner.nextInt();
+            }catch(Exception e){
+                System.out.println("Invalid input");
+                continue;
+            }
 
             if(code == 0){
                 System.out.println("Bye!");
@@ -97,7 +148,9 @@ public class App {
                 }
 
                 System.out.print("Enter product name: ");
-                String productName = scanner.next();
+                scanner.nextLine();
+                String productName = scanner.nextLine();
+                System.out.println(productName);
 
                 Product product = ShopsService.findProductByName(currentShop, productName);
 
@@ -119,7 +172,9 @@ public class App {
                 }
 
                 System.out.print("Enter product name: ");
-                String productName = scanner.next();
+                scanner.nextLine();
+                String productName = scanner.nextLine();
+
 
                 Product product = ShopsService.findProductByName(currentShop, productName);
 
