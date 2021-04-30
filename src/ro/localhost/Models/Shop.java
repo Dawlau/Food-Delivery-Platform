@@ -75,4 +75,15 @@ public class Shop implements Comparable<Shop>{
         System.out.println("The menu at " + name + " is:");
         menu.listMenu();
     }
+
+    @Override
+    public String toString() { // for debugging and testing purposes
+        return "Shop{" +
+                "name='" + name + '\'' +
+                ", menu=" + menu +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", address='" + address + '\'' +
+                ", rating=" + rating +
+                '}';
+    }
 }

@@ -1,6 +1,7 @@
 package ro.localhost.Models;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ShopMenu {
 
@@ -58,9 +59,20 @@ public class ShopMenu {
     public Product findProductByName(String productName){
 
         for(Product product : products)
-            if(product.getName().equals(productName)){
+            if(product.getName().toLowerCase().equals(productName.toLowerCase())){
                 return product;
             }
             return null;
+    }
+
+    @Override
+    public String toString(){ // for debugging and testing purposes
+        StringBuilder repr = new StringBuilder();
+
+        for(Product product : products)
+            repr.append(product.getName()).append(", ");
+        repr.deleteCharAt(repr.length() - 2);
+
+        return repr.toString();
     }
 }
