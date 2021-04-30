@@ -73,6 +73,8 @@ public class Product { // maybe implement filters for price etc
 
     @Override
     public String toString() {
-        return name + " " + description + " " + price;
+        return "NAME: " + name + "       " +
+                "DESCRIPTION: " + description + "       " +
+                "PRICE: " + price;
     }
 }
