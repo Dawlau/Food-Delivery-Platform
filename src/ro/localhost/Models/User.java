@@ -1,6 +1,7 @@
 package ro.localhost.Models;
 import ro.localhost.Interfaces.userActions;
 import ro.localhost.Services.OrdersService;
+import ro.localhost.Services.TraceOrdersService;
 import ro.localhost.Services.csvReader;
 import ro.localhost.Services.csvWriter;
 
@@ -48,20 +49,6 @@ public class User extends Person implements userActions{
         cart.listCart();
     }
 
-
-    private void traceOrder(Order order){
-
-        String text = this.firstName + " " + this.lastName + " placed an order," + order.getDate();
-
-        csvReader r = csvReader.getInstance();
-
-        String content = r.readFile("csvFiles/OrdersTrace.csv");
-        content += text + "\n";
-
-        csvWriter w = csvWriter.getInstance();
-        w.writeToFile(content, "csvFiles/OrdersTrace.csv");
-    }
-
     @Override
     public void placeOrder(Shop shop, Courier courier) {
 
@@ -74,7 +61,8 @@ public class User extends Person implements userActions{
 
             cart = new Cart();
 
-            traceOrder(currentOrder);
+        TraceOrdersService orderTracer = TraceOrdersService.getInstance();
+        orderTracer.traceOrder(this, currentOrder);
 
         OrdersService.addOrder(this, currentOrder);
         orderHistory.add(new Order(currentOrder));
