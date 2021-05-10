@@ -16,8 +16,11 @@ public class OrdersService {
 
     public static Pair<User, Order> getOrder(){
 
-        if(orders.size() == 0)
+        ActionTracer.traceAction("Got request to fetch the next order in the queue of orders");
+
+        if(orders.size() == 0) {
             System.out.println("No orders for now");
+        }
         else {
             Pair<User, Order> order = orders.get(0);
             orders.remove(0);

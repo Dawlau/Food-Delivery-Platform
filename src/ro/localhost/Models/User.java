@@ -1,10 +1,9 @@
 package ro.localhost.Models;
 import ro.localhost.Interfaces.userActions;
+import ro.localhost.Services.ActionTracer;
 import ro.localhost.Services.OrdersService;
-import ro.localhost.Services.TraceOrdersService;
-import ro.localhost.Services.csvReader;
-import ro.localhost.Services.csvWriter;
 
+import javax.swing.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -39,14 +38,21 @@ public class User extends Person implements userActions{
 
     public void addToCart(Product product){
         cart.add(product);
+
+        ActionTracer.traceAction(this.firstName + " " + this.lastName + " added a " + product.getName() + " to the cart");
     }
 
     public void removeFromCart(Product product){
+
         cart.remove(product);
+
+        ActionTracer.traceAction(this.firstName + " " + this.lastName + " removed a " + product.getName() + " from the cart");
     }
 
     public void listCart(){
         cart.listCart();
+
+        ActionTracer.traceAction(this.firstName + " " + this.lastName + " listed his cart contents");
     }
 
     @Override
@@ -61,11 +67,10 @@ public class User extends Person implements userActions{
 
             cart = new Cart();
 
-        TraceOrdersService orderTracer = TraceOrdersService.getInstance();
-        orderTracer.traceOrder(this, currentOrder);
-
         OrdersService.addOrder(this, currentOrder);
         orderHistory.add(new Order(currentOrder));
+
+        ActionTracer.traceAction(this.firstName + " " + this.lastName + " placed an order");
     }
 
     @Override
@@ -74,5 +79,14 @@ public class User extends Person implements userActions{
         System.out.println("Istoricul de comenzi:");
         for(Order order: orderHistory)
             System.out.println(order);
+
+        ActionTracer.traceAction(this.firstName + " " + this.lastName + " showed his order history");
+    }
+
+    public Product findInCart(String productName){
+
+        ActionTracer.traceAction("Request from " + this.firstName + " " + this.lastName + "'s account to check if " + productName + " is in the cart");
+
+        return cart.checkInCart(productName);
     }
 }

@@ -4,6 +4,7 @@ import java.awt.*;
 import java.util.*;
 import java.util.List;
 
+import ro.localhost.DataStructures.Pair;
 import ro.localhost.Enums.ProductType;
 import ro.localhost.Models.Product;
 import ro.localhost.Models.Shop;
@@ -16,8 +17,8 @@ public class ShopsService {
     // Map<ProductName, Product>
     static final private Map<String, Product> products = new HashMap<>();
 
-    // Map<ShopName, Menu>
-    static final private Map<String, ShopMenu> menus = new HashMap<>();
+    // product name, shop name
+    static final private ArrayList<Pair<String, String> > shopsAndProducts = new ArrayList<>();
 
     private static void fetch_Products(){
 
@@ -38,6 +39,8 @@ public class ShopsService {
 
             products.put(product.getName(), product);
         }
+
+        ActionTracer.traceAction("Products got fetched successfully");
     }
 
     private static void fetch_Menus(){
@@ -53,11 +56,10 @@ public class ShopsService {
             String productName = fields[0];
             String shopName = fields[1];
 
-            if(!menus.containsKey(shopName))
-                menus.put(shopName, new ShopMenu());
-
-            menus.get(shopName).add(products.get(productName));
+            shopsAndProducts.add(new Pair<>(productName, shopName));
         }
+
+        ActionTracer.traceAction("Menus fetched successfully");
     }
 
     private static void fetch_Shops(){
@@ -70,9 +72,17 @@ public class ShopsService {
         for(int i = 1; i < lines.length; ++i) {
             String[] fields = lines[i].split(",");
 
+            ArrayList<Product> menuProducts = new ArrayList<>();
+
+            for(int j = 0; j < shopsAndProducts.size(); ++j)
+                if(shopsAndProducts.get(j).getSecond().equals(fields[0])) {
+                    menuProducts.add(products.get(shopsAndProducts.get(j).getFirst()));
+                }
+
+
             Shop shop = new Shop(
                     fields[0], // name
-                    menus.get(fields[0]), // menu
+                    new ShopMenu(menuProducts), // menu
                     fields[1], // phone number
                     fields[2], // address
                     Double.parseDouble(fields[3]) // rating
@@ -80,6 +90,8 @@ public class ShopsService {
 
             shops.add(shop);
         }
+
+        ActionTracer.traceAction("Shops fetched successfully");
     }
 
     public static void fetch_ShopsData(){ // will read from a file or a database in the future
@@ -93,9 +105,13 @@ public class ShopsService {
         System.out.println("The shops available are:");
         for(Shop shop : shops)
             System.out.println(shop.getName());
+
+        ActionTracer.traceAction("All shops were listed");
     }
 
     public static Shop findByName(String shopName){
+
+        ActionTracer.traceAction("Got request to fetch shop " + shopName);
 
         for(Shop shop : shops)
             if (shop.getName().toLowerCase().equals(shopName.toLowerCase())) {
@@ -105,11 +121,12 @@ public class ShopsService {
     }
 
     public static Product findProductByName(Shop shop, String productName){
-        return shop.getMenu().findProductByName(productName);
+        ActionTracer.traceAction("Got request to fetch " + productName + " from " + shop.getName());
+        return shop.findProductInMenu(productName);
     }
 
     public static void listShopMenu(Shop shop){
-
+        ActionTracer.traceAction("Got request to list the menu of " + shop.getName());
         shop.listMenu();
         System.out.println();
     }

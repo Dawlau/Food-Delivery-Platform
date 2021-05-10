@@ -1,5 +1,7 @@
 package ro.localhost.Models;
 
+import ro.localhost.Services.ActionTracer;
+
 import java.awt.*;
 
 public class Shop implements Comparable<Shop>{
@@ -25,7 +27,7 @@ public class Shop implements Comparable<Shop>{
 
     public Shop(String name, ShopMenu menu, String phoneNumber, String address, double rating) {
         this.setName(name);
-        this.setMenu(menu);
+        this.menu = new ShopMenu(menu);
         this.setPhoneNumber(phoneNumber);
         this.setAddress(address);
         this.setRating(rating);
@@ -33,10 +35,6 @@ public class Shop implements Comparable<Shop>{
 
     public String getName() {
         return name;
-    }
-
-    public ShopMenu getMenu() {
-        return new ShopMenu(menu); // return a new menu identically to the original so it won't modify outside the class
     }
 
     public String getPhoneNumber() {
@@ -55,10 +53,6 @@ public class Shop implements Comparable<Shop>{
         this.name = name;
     }
 
-    public void setMenu(ShopMenu menu) {
-        this.menu = new ShopMenu(menu);
-    }
-
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
@@ -74,6 +68,24 @@ public class Shop implements Comparable<Shop>{
     public void listMenu(){
         System.out.println("The menu at " + name + " is:");
         menu.listMenu();
+
+        ActionTracer.traceAction(name + "'s menu got listed");
+    }
+
+    public Product findProductInMenu(String productName){
+        return menu.findProductByName(productName);
+    }
+
+    public void addProductToMenu(Product product){
+        menu.add(product);
+
+        ActionTracer.traceAction("Added " + product.getName() + " to " + name + "'s menu");
+    }
+
+    public void removeProductFromMenu(Product product){
+        menu.remove(product);
+
+        ActionTracer.traceAction("Removed " + product.getName() + " from " + name + "'s menu");
     }
 
     @Override

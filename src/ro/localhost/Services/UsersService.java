@@ -35,9 +35,12 @@ public class UsersService {
             users.add(user);
         }
 
+        ActionTracer.traceAction("Users fetched successfully");
     }
 
     public static User findByName(String firstName, String lastName){
+
+        ActionTracer.traceAction("Got request to fetch user " + firstName + " " + lastName);
 
         for(User user : users)
             if(user.getFirstName().toLowerCase().equals(firstName.toLowerCase())

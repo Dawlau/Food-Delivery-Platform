@@ -2,6 +2,7 @@ package ro.localhost.Models;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class Cart {
 
@@ -55,5 +56,13 @@ public class Cart {
         else{
             System.out.println("The product " + p + " does not exist in the cart");
         }
+    }
+
+    public Product checkInCart(String productName){
+
+        for(Product product : products.keySet())
+            if(product.getName().toLowerCase().equals(productName.toLowerCase()))
+                return new Product(product);
+            return null;
     }
 }

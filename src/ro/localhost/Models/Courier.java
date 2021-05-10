@@ -1,6 +1,7 @@
 package ro.localhost.Models;
 import ro.localhost.DataStructures.Pair;
 import ro.localhost.Interfaces.courierActions;
+import ro.localhost.Services.ActionTracer;
 import ro.localhost.Services.OrdersService;
 
 public class Courier extends Person implements courierActions{
@@ -21,7 +22,14 @@ public class Courier extends Person implements courierActions{
     public void takeOrder() {
 
         Pair<User, Order> order = OrdersService.getOrder();
+
+        if(order == null) return ;
+
+        ActionTracer.traceAction("Courier " + this.firstName + " " + this.lastName + " took " + order.getFirst().getFirstName() + " " + order.getFirst().getLastName() + "'s order");
+
         callUser(order.getFirst());
+
+        ActionTracer.traceAction("Courier " + this.firstName + " " + this.lastName + " delivered " + order.getFirst().getFirstName() + " " + order.getFirst().getLastName() + "'s order");
 
         System.out.println("Your order has been delivered");
     }
@@ -29,5 +37,7 @@ public class Courier extends Person implements courierActions{
     @Override
     public void callUser(User user) {
         System.out.println("Call " + user.getFirstName() + " " + user.getLastName() + " on " + user.getPhoneNumber());
+
+        ActionTracer.traceAction("Courier " + this.firstName + " " + this.lastName + " called " + user.getFirstName() + " " + user.getLastName());
     }
 }

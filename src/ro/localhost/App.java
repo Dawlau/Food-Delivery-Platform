@@ -4,6 +4,7 @@ import ro.localhost.Models.Courier;
 import ro.localhost.Models.Product;
 import ro.localhost.Models.Shop;
 import ro.localhost.Models.User;
+import ro.localhost.Services.ActionTracer;
 import ro.localhost.Services.CouriersService;
 import ro.localhost.Services.ShopsService;
 import ro.localhost.Services.UsersService;
@@ -74,8 +75,10 @@ public class App {
             }
 
             User user = UsersService.findByName(firstName, lastName);
-            if(user != null)
+            if(user != null) {
+                ActionTracer.traceAction("User " + user.getFirstName() + " " + user.getFirstName() + " logged in successfully");
                 return user;
+            }
         }
     }
 
@@ -176,7 +179,7 @@ public class App {
                 String productName = scanner.nextLine();
 
 
-                Product product = ShopsService.findProductByName(currentShop, productName);
+                Product product = user.findInCart(productName);
 
                 if(product == null){
                     System.out.println("Item does not exist");

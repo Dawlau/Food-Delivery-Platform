@@ -26,7 +26,7 @@ public class CouriersService {
     }
 
     public static Courier findCourierByName(String courierFirstName, String courierLastName){
-
+        ActionTracer.traceAction("Got request to fetch courier " + courierFirstName + " " + courierLastName);
         for(Courier courier : couriers)
             if(courier.getLastName().equals(courierLastName) && courier.getFirstName().equals(courierFirstName))
                 return courier;
