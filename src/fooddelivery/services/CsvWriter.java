@@ -1,19 +1,20 @@
-package ro.localhost.Services;
+package fooddelivery.services;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class csvWriter {
+public class CsvWriter {
 
-    private static csvWriter fileWriter = null;
+    private static CsvWriter fileWriter = null;
 
-    private csvWriter() {}
+    private CsvWriter() {}
 
-    public static csvWriter getInstance(){
+    public static CsvWriter getInstance(){
 
-        if(fileWriter == null)
-            fileWriter = new csvWriter();
+        if(fileWriter == null) {
+            fileWriter = new CsvWriter();
+        }
         return fileWriter;
     }
 

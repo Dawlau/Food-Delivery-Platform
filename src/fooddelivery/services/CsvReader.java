@@ -1,17 +1,18 @@
-package ro.localhost.Services;
+package fooddelivery.services;
 
 import java.io.*;
 
-public class csvReader {
+public class CsvReader {
 
-    static private csvReader fileReader = null;
+    static private CsvReader fileReader = null;
 
-    private csvReader() {}
+    private CsvReader() {}
 
-    public static csvReader getInstance(){
+    public static CsvReader getInstance(){
 
-        if(fileReader == null)
-            fileReader = new csvReader();
+        if(fileReader == null) {
+            fileReader = new CsvReader();
+        }
         return fileReader;
     }
 

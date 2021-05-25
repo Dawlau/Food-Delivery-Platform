@@ -1,5 +1,5 @@
-package ro.localhost.Models;
-import ro.localhost.Enums.ProductType;
+package fooddelivery.models;
+import fooddelivery.enums.ProductType;
 
 import java.util.Objects;
 
@@ -63,7 +63,10 @@ public class Product { // maybe implement filters for price etc
         if (this == o) return true;
         if (!(o instanceof Product)) return false;
         Product product = (Product) o;
-        return Double.compare(product.getPrice(), getPrice()) == 0 && Objects.equals(getName(), product.getName()) && Objects.equals(getDescription(), product.getDescription()) && getType() == product.getType();
+        return  Double.compare(product.getPrice(), getPrice()) == 0 &&
+                Objects.equals(getName(), product.getName()) &&
+                Objects.equals(getDescription(), product.getDescription()) &&
+                getType() == product.getType();
     }
 
     @Override

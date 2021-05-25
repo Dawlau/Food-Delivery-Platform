@@ -1,6 +1,4 @@
-package ro.localhost.Models;
-
-import java.util.ArrayList;
+package fooddelivery.models;
 
 public abstract class Person {
 

@@ -1,4 +1,4 @@
-package ro.localhost.Models;
+package fooddelivery.models;
 
 import java.util.ArrayList;
 
@@ -46,8 +46,9 @@ public class Order {
     public ArrayList<Product> getProducts() {
         ArrayList<Product> aux = new ArrayList<>();
 
-        for(Product product : products)
+        for(Product product : products) {
             aux.add(new Product(product));
+        }
 
         return aux;
     }
@@ -63,12 +64,9 @@ public class Order {
     public void setProducts(ArrayList<Product> products) {
         this.products = new ArrayList<>();
 
-        for(Product product : products)
+        for(Product product : products) {
             this.products.add(new Product(product)); // careful with references
-    }
-
-    public void addProduct(Product product){
-        products.add(product);
+        }
     }
 
     @Override

@@ -1,8 +1,6 @@
-package ro.localhost.Models;
+package fooddelivery.models;
 
-import ro.localhost.Services.ActionTracer;
-
-import java.awt.*;
+import fooddelivery.services.ActionTracer;
 
 public class Shop implements Comparable<Shop>{
 
@@ -31,6 +29,10 @@ public class Shop implements Comparable<Shop>{
         this.setPhoneNumber(phoneNumber);
         this.setAddress(address);
         this.setRating(rating);
+    }
+
+    public ShopMenu getMenu() {
+        return menu;
     }
 
     public String getName() {
@@ -63,29 +65,6 @@ public class Shop implements Comparable<Shop>{
 
     public void setRating(double rating) {
         this.rating = rating;
-    }
-
-    public void listMenu(){
-        System.out.println("The menu at " + name + " is:");
-        menu.listMenu();
-
-        ActionTracer.traceAction(name + "'s menu got listed");
-    }
-
-    public Product findProductInMenu(String productName){
-        return menu.findProductByName(productName);
-    }
-
-    public void addProductToMenu(Product product){
-        menu.add(product);
-
-        ActionTracer.traceAction("Added " + product.getName() + " to " + name + "'s menu");
-    }
-
-    public void removeProductFromMenu(Product product){
-        menu.remove(product);
-
-        ActionTracer.traceAction("Removed " + product.getName() + " from " + name + "'s menu");
     }
 
     @Override

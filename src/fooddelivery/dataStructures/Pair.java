@@ -1,4 +1,4 @@
-package ro.localhost.DataStructures;
+package fooddelivery.dataStructures;
 
 public class Pair <T, Q>{
 

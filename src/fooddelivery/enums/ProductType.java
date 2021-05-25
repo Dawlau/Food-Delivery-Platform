@@ -1,4 +1,4 @@
-package ro.localhost.Enums;
+package fooddelivery.enums;
 
 public enum ProductType {
     FOOD,

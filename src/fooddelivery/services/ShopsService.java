@@ -1,14 +1,12 @@
-package ro.localhost.Services;
+package fooddelivery.services;
 
-import java.awt.*;
 import java.util.*;
-import java.util.List;
 
-import ro.localhost.DataStructures.Pair;
-import ro.localhost.Enums.ProductType;
-import ro.localhost.Models.Product;
-import ro.localhost.Models.Shop;
-import ro.localhost.Models.ShopMenu;
+import fooddelivery.dataStructures.Pair;
+import fooddelivery.enums.ProductType;
+import fooddelivery.models.Product;
+import fooddelivery.models.Shop;
+import fooddelivery.models.ShopMenu;
 
 public class ShopsService {
 
@@ -18,11 +16,11 @@ public class ShopsService {
     static final private Map<String, Product> products = new HashMap<>();
 
     // product name, shop name
-    static final private ArrayList<Pair<String, String> > shopsAndProducts = new ArrayList<>();
+    static final private ArrayList<Pair<String, String>> shopsAndProducts = new ArrayList<>();
 
     private static void fetch_Products(){
 
-        csvReader r = csvReader.getInstance();
+        CsvReader r = CsvReader.getInstance();
         String content = r.readFile("csvFiles/Products.csv");
 
         String[] lines = content.split("\n");
@@ -45,7 +43,7 @@ public class ShopsService {
 
     private static void fetch_Menus(){
 
-        csvReader r = csvReader.getInstance();
+        CsvReader r = CsvReader.getInstance();
         String content = r.readFile("csvFiles/ShopMenus.csv");
 
         String[] lines = content.split("\n");
@@ -64,7 +62,7 @@ public class ShopsService {
 
     private static void fetch_Shops(){
 
-        csvReader r = csvReader.getInstance();
+        CsvReader r = CsvReader.getInstance();
         String content = r.readFile("csvFiles/Shops.csv");
 
         String[] lines = content.split("\n");
@@ -74,10 +72,11 @@ public class ShopsService {
 
             ArrayList<Product> menuProducts = new ArrayList<>();
 
-            for(int j = 0; j < shopsAndProducts.size(); ++j)
-                if(shopsAndProducts.get(j).getSecond().equals(fields[0])) {
-                    menuProducts.add(products.get(shopsAndProducts.get(j).getFirst()));
+            for (Pair<String, String> shopsAndProduct : shopsAndProducts) {
+                if (shopsAndProduct.getSecond().equals(fields[0])) {
+                    menuProducts.add(products.get(shopsAndProduct.getFirst()));
                 }
+            }
 
 
             Shop shop = new Shop(
@@ -103,8 +102,9 @@ public class ShopsService {
     public static void listShops(){
 
         System.out.println("The shops available are:");
-        for(Shop shop : shops)
+        for(Shop shop : shops) {
             System.out.println(shop.getName());
+        }
 
         ActionTracer.traceAction("All shops were listed");
     }
@@ -113,21 +113,65 @@ public class ShopsService {
 
         ActionTracer.traceAction("Got request to fetch shop " + shopName);
 
-        for(Shop shop : shops)
+        for(Shop shop : shops) {
             if (shop.getName().toLowerCase().equals(shopName.toLowerCase())) {
                 return shop;
             }
+        }
         return null;
     }
 
     public static Product findProductByName(Shop shop, String productName){
         ActionTracer.traceAction("Got request to fetch " + productName + " from " + shop.getName());
-        return shop.findProductInMenu(productName);
+
+        for(Product product : shop.getMenu().getProducts()){
+            if (product.getName().toLowerCase().equals(productName.toLowerCase())) {
+                return product;
+            }
+        }
+
+        return null;
     }
 
     public static void listShopMenu(Shop shop){
         ActionTracer.traceAction("Got request to list the menu of " + shop.getName());
-        shop.listMenu();
+        System.out.println("The menu at " + shop.getName() + " is:");
+
+        for(Product product : shop.getMenu().getProducts()){
+            System.out.println(product);
+        }
+
+        ActionTracer.traceAction(shop.getName() + "'s menu got listed");
+
         System.out.println();
     }
+
+    public static void removeProductFromMenu(Shop shop, Product product){
+
+        ActionTracer.traceAction("Removed " + product.getName() + " from " + shop.getName() + "'s menu");
+
+        ArrayList<Product> products = shop.getMenu().getProducts();
+
+        if(!products.contains(product)) {
+            System.out.println("Product " + product.getName() + " is not in the menu");
+        }
+        else {
+            products.remove(product);
+        }
+    }
+
+//    public static void addProductToMenu(Shop shop, Product product){
+//
+//        ArrayList<Product> products = shop.getMenu().getProducts();
+//
+//        if(!products.contains(product)) {
+//            products.add(product);
+//            shop.getMenu().setProducts(products);
+//
+//            ActionTracer.traceAction("Added " + product.getName() + " to " + product.getName() + "'s menu");
+//        }
+//        else {
+//            System.out.println("Product already in the menu");
+//        }
+//    }
 }

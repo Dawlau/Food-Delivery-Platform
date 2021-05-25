@@ -1,13 +1,13 @@
-package ro.localhost;
+package fooddelivery;
 
-import ro.localhost.Models.Courier;
-import ro.localhost.Models.Product;
-import ro.localhost.Models.Shop;
-import ro.localhost.Models.User;
-import ro.localhost.Services.ActionTracer;
-import ro.localhost.Services.CouriersService;
-import ro.localhost.Services.ShopsService;
-import ro.localhost.Services.UsersService;
+import fooddelivery.models.Courier;
+import fooddelivery.models.Product;
+import fooddelivery.models.Shop;
+import fooddelivery.models.User;
+import fooddelivery.services.ActionTracer;
+import fooddelivery.services.CouriersService;
+import fooddelivery.services.ShopsService;
+import fooddelivery.services.UsersService;
 
 import java.util.Scanner;
 
@@ -38,8 +38,8 @@ public class App {
 
     private static void placeOrder(Courier courier, User user, Shop shop){
 
-        user.placeOrder(shop, courier);
-        courier.takeOrder();
+        UsersService.placeOrder(user, shop, courier);
+        CouriersService.takeOrder(courier);
     }
 
     private static User login(){
@@ -82,14 +82,90 @@ public class App {
         }
     }
 
+    private static Shop selectShop(Scanner scanner){
+
+        System.out.print("Enter shop name: ");
+        String shopName = scanner.next();
+        Shop shop = ShopsService.findByName(shopName);
+
+        if(shop == null) {
+            System.out.println("Shop does not exist");
+            return null;
+        }
+        else {
+            System.out.println("Shop has been selected");
+            System.out.println(shop.getName());
+            return shop;
+        }
+    }
+
+    private static void printCurrentShop(Shop currentShop){
+
+        if(currentShop == null) {
+            System.out.println("No shop selected");
+        }
+        else {
+            System.out.println(currentShop.getName());
+        }
+    }
+
+    private static void printCurrentShopMenu(Shop currentShop){
+        if(currentShop == null)
+            System.out.println("No shop selected");
+        else
+            ShopsService.listShopMenu(currentShop);
+    }
+
+    private static void addItemToCart(User user, Shop currentShop, Scanner scanner){
+
+        if(currentShop == null) {
+            System.out.println("No shop selected");
+            return ;
+        }
+
+        System.out.print("Enter product name: ");
+        scanner.nextLine();
+        String productName = scanner.nextLine();
+        System.out.println(productName);
+
+        Product product = ShopsService.findProductByName(currentShop, productName);
+
+        if(product == null){
+            System.out.println("Item does not exist");
+        }
+        else{ // add to cart
+            UsersService.addToCart(user, product);
+        }
+    }
+
+    private static void removeItemFromCart(User user, Shop currentShop, Scanner scanner){
+
+        if(currentShop == null) {
+            System.out.println("No shop selected");
+            return ;
+        }
+
+        System.out.print("Enter product name: ");
+        scanner.nextLine();
+        String productName = scanner.nextLine();
+
+        Product product = UsersService.findInCart(user, productName);
+
+        if(product == null){
+            System.out.println("Item does not exist");
+        }
+        else{
+            UsersService.removeFromCart(user, product);
+        }
+    }
+
     public static void run(){
 
         fetchData();
 
         User user = login();
 
-        System.out.println("Welcome " + user + "!");
-
+        System.out.println("Welcome " + user.getFirstName() + " " + user.getLastName() + "!");
 
 
         Shop currentShop = null;
@@ -118,78 +194,24 @@ public class App {
                 ShopsService.listShops();
             }
             else if(code == 2){
-                System.out.print("Enter shop name: ");
-                String shopName = scanner.next();
-                Shop shop = ShopsService.findByName(shopName);
-                currentShop = shop;
-
-                if(shop == null) {
-                    System.out.println("Shop does not exist");
-                }
-                else {
-                    System.out.println("Shop has been selected");
-                    System.out.println(shop.getName());
-                }
+                currentShop = selectShop(scanner);
             }
             else if(code == 3){
-                if(currentShop == null)
-                    System.out.println("No shop selected");
-                else
-                    System.out.println(currentShop.getName());
+                printCurrentShop(currentShop);
             }
             else if(code == 4){
-                if(currentShop == null)
-                    System.out.println("No shop selected");
-                else
-                    ShopsService.listShopMenu(currentShop);
+                printCurrentShopMenu(currentShop);
             }
             else if(code == 5){
-
-                if(currentShop == null) {
-                    System.out.println("No shop selected");
-                    continue;
-                }
-
-                System.out.print("Enter product name: ");
-                scanner.nextLine();
-                String productName = scanner.nextLine();
-                System.out.println(productName);
-
-                Product product = ShopsService.findProductByName(currentShop, productName);
-
-                if(product == null){
-                    System.out.println("Item does not exist");
-                }
-                else{ // add to cart
-                    user.addToCart(product);
-                }
+                addItemToCart(user, currentShop, scanner);
             }
             else if(code == 6){
-                user.listCart();
+                UsersService.listCart(user);
             }
             else if(code == 7){
-
-                if(currentShop == null) {
-                    System.out.println("No shop selected");
-                    continue;
-                }
-
-                System.out.print("Enter product name: ");
-                scanner.nextLine();
-                String productName = scanner.nextLine();
-
-
-                Product product = user.findInCart(productName);
-
-                if(product == null){
-                    System.out.println("Item does not exist");
-                }
-                else{
-                    user.removeFromCart(product);
-                }
+                removeItemFromCart(user, currentShop, scanner);
             }
             else if(code == 8){
-
                 if(currentShop == null) {
                     System.out.println("No shop selected");
                     continue ;
@@ -197,7 +219,7 @@ public class App {
                 placeOrder(courier, user, currentShop);
             }
             else if(code == 9){
-                user.showOrderHistory();
+                UsersService.showOrderHistory(user);
             }
 
             System.out.println();

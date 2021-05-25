@@ -88,3 +88,305 @@ Courier Claudiu Costeniuc took Sebastian Cucolas's order, 10-05-2021 18:13:5
 Courier Claudiu Costeniuc called Sebastian Cucolas, 10-05-2021 18:13:5
 Courier Claudiu Costeniuc delivered Sebastian Cucolas's order, 10-05-2021 18:13:5
 Sebastian Cucolas showed his order history, 10-05-2021 18:13:6
+Products got fetched successfully, 25-05-2021 13:8:5
+Menus fetched successfully, 25-05-2021 13:8:5
+Shops fetched successfully, 25-05-2021 13:8:5
+Users fetched successfully, 25-05-2021 13:8:5
+Got request to fetch user andrei blahovici, 25-05-2021 13:8:9
+User Andrei Andrei logged in successfully, 25-05-2021 13:8:9
+Products got fetched successfully, 25-05-2021 13:9:47
+Menus fetched successfully, 25-05-2021 13:9:47
+Shops fetched successfully, 25-05-2021 13:9:47
+Users fetched successfully, 25-05-2021 13:9:47
+Got request to fetch user andrei blahovici, 25-05-2021 13:9:52
+User Andrei Andrei logged in successfully, 25-05-2021 13:9:52
+Products got fetched successfully, 25-05-2021 13:12:35
+Menus fetched successfully, 25-05-2021 13:12:35
+Shops fetched successfully, 25-05-2021 13:12:35
+Users fetched successfully, 25-05-2021 13:12:35
+Got request to fetch user andrei blahovici, 25-05-2021 13:12:40
+User Andrei Andrei logged in successfully, 25-05-2021 13:12:40
+Andrei Blahovici showed his order history, 25-05-2021 13:12:44
+Products got fetched successfully, 25-05-2021 13:15:41
+Menus fetched successfully, 25-05-2021 13:15:41
+Shops fetched successfully, 25-05-2021 13:15:41
+Users fetched successfully, 25-05-2021 13:15:41
+Got request to fetch user andrei blahovici, 25-05-2021 13:15:44
+User Andrei Andrei logged in successfully, 25-05-2021 13:15:44
+All shops were listed, 25-05-2021 13:15:46
+Got request to fetch shop KFC, 25-05-2021 13:15:53
+Got request to list the menu of KFC, 25-05-2021 13:16:0
+KFC's menu got listed, 25-05-2021 13:16:0
+Got request to fetch Hot wings from KFC, 25-05-2021 13:16:7
+Andrei Blahovici added a Hot Wings to the cart, 25-05-2021 13:16:7
+Andrei Blahovici listed his cart contents, 25-05-2021 13:16:12
+Request from Andrei Blahovici's account to check if hot wings is in the cart, 25-05-2021 13:16:16
+Andrei Blahovici removed a Hot Wings from the cart, 25-05-2021 13:16:16
+Got request to fetch apa plata from KFC, 25-05-2021 13:16:21
+Andrei Blahovici added a Apa plata to the cart, 25-05-2021 13:16:21
+Andrei Blahovici placed an order, 25-05-2021 13:16:25
+Got request to fetch the next order in the queue of orders, 25-05-2021 13:16:25
+Courier Claudiu Costeniuc took Andrei Blahovici's order, 25-05-2021 13:16:25
+Courier Claudiu Costeniuc called Andrei Blahovici, 25-05-2021 13:16:25
+Courier Claudiu Costeniuc delivered Andrei Blahovici's order, 25-05-2021 13:16:25
+Andrei Blahovici showed his order history, 25-05-2021 13:16:26
+Products got fetched successfully, 25-05-2021 13:17:32
+Menus fetched successfully, 25-05-2021 13:17:32
+Shops fetched successfully, 25-05-2021 13:17:32
+Users fetched successfully, 25-05-2021 13:17:32
+Got request to fetch user andrei blahovici, 25-05-2021 13:17:35
+User Andrei Andrei logged in successfully, 25-05-2021 13:17:35
+Products got fetched successfully, 25-05-2021 13:18:8
+Menus fetched successfully, 25-05-2021 13:18:8
+Shops fetched successfully, 25-05-2021 13:18:8
+Users fetched successfully, 25-05-2021 13:18:8
+Got request to fetch user sebastian cucolas, 25-05-2021 13:18:16
+User Sebastian Sebastian logged in successfully, 25-05-2021 13:18:16
+Got request to fetch shop mcdonald's, 25-05-2021 13:18:26
+Got request to list the menu of McDonald's, 25-05-2021 13:18:30
+McDonald's's menu got listed, 25-05-2021 13:18:30
+Got request to fetch big mac from McDonald's, 25-05-2021 13:18:40
+Sebastian Cucolas added a Big Mac to the cart, 25-05-2021 13:18:40
+Sebastian Cucolas listed his cart contents, 25-05-2021 13:18:44
+Request from Sebastian Cucolas's account to check if pul is in the cart, 25-05-2021 13:18:49
+Sebastian Cucolas placed an order, 25-05-2021 13:18:54
+Got request to fetch the next order in the queue of orders, 25-05-2021 13:18:54
+Courier Claudiu Costeniuc took Sebastian Cucolas's order, 25-05-2021 13:18:54
+Courier Claudiu Costeniuc called Sebastian Cucolas, 25-05-2021 13:18:54
+Courier Claudiu Costeniuc delivered Sebastian Cucolas's order, 25-05-2021 13:18:54
+Sebastian Cucolas showed his order history, 25-05-2021 13:18:56
+Products got fetched successfully, 25-05-2021 13:26:24
+Menus fetched successfully, 25-05-2021 13:26:24
+Shops fetched successfully, 25-05-2021 13:26:24
+Users fetched successfully, 25-05-2021 13:26:24
+Got request to fetch user andrei blahovici, 25-05-2021 13:26:27
+User Andrei Andrei logged in successfully, 25-05-2021 13:26:27
+All shops were listed, 25-05-2021 13:26:30
+Got request to fetch shop spartan, 25-05-2021 13:26:36
+Got request to list the menu of Spartan, 25-05-2021 13:26:39
+Spartan's menu got listed, 25-05-2021 13:26:39
+Got request to fetch leonidas pita from Spartan, 25-05-2021 13:26:46
+Andrei Blahovici added a Leonidas Pita to the cart, 25-05-2021 13:26:46
+Got request to fetch nestea from Spartan, 25-05-2021 13:26:53
+Andrei Blahovici added a Nestea to the cart, 25-05-2021 13:26:53
+Got request to fetch heba from Spartan, 25-05-2021 13:26:58
+Andrei Blahovici listed his cart contents, 25-05-2021 13:27:2
+Request from Andrei Blahovici's account to check if nestea is in the cart, 25-05-2021 13:27:10
+Andrei Blahovici removed a Nestea from the cart, 25-05-2021 13:27:10
+Andrei Blahovici listed his cart contents, 25-05-2021 13:27:15
+Andrei Blahovici placed an order, 25-05-2021 13:27:19
+Got request to fetch the next order in the queue of orders, 25-05-2021 13:27:19
+Courier Claudiu Costeniuc took Andrei Blahovici's order, 25-05-2021 13:27:19
+Courier Claudiu Costeniuc called Andrei Blahovici, 25-05-2021 13:27:19
+Courier Claudiu Costeniuc delivered Andrei Blahovici's order, 25-05-2021 13:27:19
+Andrei Blahovici showed his order history, 25-05-2021 13:27:20
+Products got fetched successfully, 25-05-2021 18:44:12
+Menus fetched successfully, 25-05-2021 18:44:12
+Shops fetched successfully, 25-05-2021 18:44:12
+Users fetched successfully, 25-05-2021 18:44:12
+Got request to fetch user andrei blahovici, 25-05-2021 18:44:16
+User Andrei Andrei logged in successfully, 25-05-2021 18:44:16
+Got request to fetch shop spartan, 25-05-2021 18:44:21
+Got request to fetch leonidas pita from Spartan, 25-05-2021 18:44:25
+Andrei Blahovici added a Leonidas Pita to the cart, 25-05-2021 18:44:25
+Got request to fetch apa plata from Spartan, 25-05-2021 18:44:28
+Andrei Blahovici added a Apa plata to the cart, 25-05-2021 18:44:28
+Andrei Blahovici placed an order, 25-05-2021 18:44:32
+Got request to fetch the next order in the queue of orders, 25-05-2021 18:44:32
+Courier Claudiu Costeniuc took Andrei Blahovici's order, 25-05-2021 18:44:32
+Courier Claudiu Costeniuc called Andrei Blahovici, 25-05-2021 18:44:32
+Courier Claudiu Costeniuc delivered Andrei Blahovici's order, 25-05-2021 18:44:32
+Andrei Blahovici showed his order history, 25-05-2021 18:44:36
+Products got fetched successfully, 25-05-2021 19:7:50
+Menus fetched successfully, 25-05-2021 19:7:50
+Shops fetched successfully, 25-05-2021 19:7:50
+Users fetched successfully, 25-05-2021 19:7:50
+Got request to fetch user andrei blahovici, 25-05-2021 19:7:55
+User Andrei Andrei logged in successfully, 25-05-2021 19:7:55
+All shops were listed, 25-05-2021 19:8:6
+Got request to fetch shop kfc, 25-05-2021 19:8:11
+Got request to list the menu of KFC, 25-05-2021 19:8:17
+KFC's menu got listed, 25-05-2021 19:8:17
+Got request to fetch coca cola from KFC, 25-05-2021 19:8:26
+Andrei Blahovici added a Coca Cola to the cart, 25-05-2021 19:8:26
+Andrei Blahovici listed his cart contents, 25-05-2021 19:8:30
+Got request to fetch hot wings from KFC, 25-05-2021 19:8:40
+Andrei Blahovici added a Hot Wings to the cart, 25-05-2021 19:8:40
+Got request to fetch twister classic from KFC, 25-05-2021 19:8:48
+Andrei Blahovici added a Twister Classic to the cart, 25-05-2021 19:8:48
+Andrei Blahovici listed his cart contents, 25-05-2021 19:8:51
+Request from Andrei Blahovici's account to check if coca cola is in the cart, 25-05-2021 19:8:58
+Andrei Blahovici removed a Coca Cola from the cart, 25-05-2021 19:8:58
+Andrei Blahovici listed his cart contents, 25-05-2021 19:9:0
+Got request to fetch sprite from KFC, 25-05-2021 19:9:6
+Andrei Blahovici added a Sprite to the cart, 25-05-2021 19:9:6
+Andrei Blahovici listed his cart contents, 25-05-2021 19:9:8
+Andrei Blahovici placed an order, 25-05-2021 19:9:11
+Got request to fetch the next order in the queue of orders, 25-05-2021 19:9:11
+Courier Claudiu Costeniuc took Andrei Blahovici's order, 25-05-2021 19:9:11
+Courier Claudiu Costeniuc called Andrei Blahovici, 25-05-2021 19:9:11
+Courier Claudiu Costeniuc delivered Andrei Blahovici's order, 25-05-2021 19:9:11
+Andrei Blahovici showed his order history, 25-05-2021 19:9:14
+Got request to fetch shop mcdonald's, 25-05-2021 19:9:31
+Got request to list the menu of McDonald's, 25-05-2021 19:9:39
+McDonald's's menu got listed, 25-05-2021 19:9:39
+Got request to fetch asf from McDonald's, 25-05-2021 19:9:47
+Andrei Blahovici listed his cart contents, 25-05-2021 19:9:49
+Got request to fetch big tasty from McDonald's, 25-05-2021 19:9:54
+Andrei Blahovici added a Big Tasty to the cart, 25-05-2021 19:9:54
+Got request to list the menu of McDonald's, 25-05-2021 19:9:58
+McDonald's's menu got listed, 25-05-2021 19:9:58
+Got request to fetch big mac from McDonald's, 25-05-2021 19:10:10
+Andrei Blahovici added a Big Mac to the cart, 25-05-2021 19:10:10
+Got request to fetch apa plata from McDonald's, 25-05-2021 19:10:14
+Andrei Blahovici added a Apa plata to the cart, 25-05-2021 19:10:14
+Andrei Blahovici listed his cart contents, 25-05-2021 19:10:16
+Request from Andrei Blahovici's account to check if big tasty is in the cart, 25-05-2021 19:10:21
+Andrei Blahovici removed a Big Tasty from the cart, 25-05-2021 19:10:21
+Andrei Blahovici placed an order, 25-05-2021 19:10:23
+Got request to fetch the next order in the queue of orders, 25-05-2021 19:10:23
+Courier Claudiu Costeniuc took Andrei Blahovici's order, 25-05-2021 19:10:23
+Courier Claudiu Costeniuc called Andrei Blahovici, 25-05-2021 19:10:23
+Courier Claudiu Costeniuc delivered Andrei Blahovici's order, 25-05-2021 19:10:23
+Andrei Blahovici showed his order history, 25-05-2021 19:10:27
+Products got fetched successfully, 25-05-2021 19:11:27
+Menus fetched successfully, 25-05-2021 19:11:27
+Shops fetched successfully, 25-05-2021 19:11:27
+Users fetched successfully, 25-05-2021 19:11:27
+Got request to fetch user sebastian cucolas, 25-05-2021 19:11:31
+User Sebastian Sebastian logged in successfully, 25-05-2021 19:11:31
+Products got fetched successfully, 25-05-2021 19:12:2
+Menus fetched successfully, 25-05-2021 19:12:2
+Shops fetched successfully, 25-05-2021 19:12:2
+Users fetched successfully, 25-05-2021 19:12:2
+Got request to fetch user sebastian cucolas, 25-05-2021 19:12:4
+User Sebastian Sebastian logged in successfully, 25-05-2021 19:12:5
+Products got fetched successfully, 25-05-2021 19:16:36
+Menus fetched successfully, 25-05-2021 19:16:36
+Shops fetched successfully, 25-05-2021 19:16:36
+Users fetched successfully, 25-05-2021 19:16:36
+Got request to fetch user andrei blahovici, 25-05-2021 19:16:41
+User Andrei Andrei logged in successfully, 25-05-2021 19:16:41
+All shops were listed, 25-05-2021 19:16:46
+Got request to fetch shop kfc, 25-05-2021 19:16:50
+Got request to list the menu of KFC, 25-05-2021 19:16:55
+KFC's menu got listed, 25-05-2021 19:16:55
+Got request to fetch shop spartan, 25-05-2021 19:17:2
+Got request to list the menu of Spartan, 25-05-2021 19:17:8
+Spartan's menu got listed, 25-05-2021 19:17:8
+Products got fetched successfully, 25-05-2021 20:9:10
+Menus fetched successfully, 25-05-2021 20:9:10
+Shops fetched successfully, 25-05-2021 20:9:10
+Users fetched successfully, 25-05-2021 20:9:10
+Got request to fetch user andrei blahovici, 25-05-2021 20:9:15
+User Andrei Andrei logged in successfully, 25-05-2021 20:9:15
+Got request to fetch shop kfc, 25-05-2021 20:9:23
+Got request to list the menu of KFC, 25-05-2021 20:9:27
+KFC's menu got listed, 25-05-2021 20:9:27
+Got request to fetch shop spartan, 25-05-2021 20:9:36
+Got request to list the menu of Spartan, 25-05-2021 20:9:40
+Spartan's menu got listed, 25-05-2021 20:9:40
+All shops were listed, 25-05-2021 20:9:43
+Got request to fetch shop luca, 25-05-2021 20:9:48
+Got request to list the menu of Luca, 25-05-2021 20:9:52
+Luca's menu got listed, 25-05-2021 20:9:52
+Got request to fetch shop mcdonald's, 25-05-2021 20:10:0
+Got request to list the menu of McDonald's, 25-05-2021 20:10:4
+McDonald's's menu got listed, 25-05-2021 20:10:4
+Got request to fetch big mac from McDonald's, 25-05-2021 20:10:12
+Andrei Blahovici added a Big Mac to the cart, 25-05-2021 20:10:12
+Andrei Blahovici listed his cart contents, 25-05-2021 20:10:15
+Request from Andrei Blahovici's account to check if big mac is in the cart, 25-05-2021 20:10:18
+Andrei Blahovici removed a Big Mac from the cart, 25-05-2021 20:10:18
+Andrei Blahovici listed his cart contents, 25-05-2021 20:10:20
+Got request to fetch apa plata from McDonald's, 25-05-2021 20:10:24
+Andrei Blahovici added a Apa plata to the cart, 25-05-2021 20:10:24
+Andrei Blahovici listed his cart contents, 25-05-2021 20:10:26
+Got request to list the menu of McDonald's, 25-05-2021 20:10:31
+McDonald's's menu got listed, 25-05-2021 20:10:31
+Andrei Blahovici listed his cart contents, 25-05-2021 20:10:38
+Got request to fetch big tasty from McDonald's, 25-05-2021 20:10:44
+Andrei Blahovici added a Big Tasty to the cart, 25-05-2021 20:10:44
+Andrei Blahovici listed his cart contents, 25-05-2021 20:10:47
+Request from Andrei Blahovici's account to check if apa plata is in the cart, 25-05-2021 20:10:52
+Andrei Blahovici removed a Apa plata from the cart, 25-05-2021 20:10:52
+Andrei Blahovici listed his cart contents, 25-05-2021 20:10:55
+Andrei Blahovici placed an order, 25-05-2021 20:10:57
+Got request to fetch the next order in the queue of orders, 25-05-2021 20:10:57
+Courier Claudiu Costeniuc took Andrei Blahovici's order, 25-05-2021 20:10:57
+Courier Claudiu Costeniuc called Andrei Blahovici, 25-05-2021 20:10:57
+Courier Claudiu Costeniuc delivered Andrei Blahovici's order, 25-05-2021 20:10:57
+Andrei Blahovici showed his order history, 25-05-2021 20:10:59
+Products got fetched successfully, 25-05-2021 20:17:47
+Menus fetched successfully, 25-05-2021 20:17:47
+Shops fetched successfully, 25-05-2021 20:17:47
+Users fetched successfully, 25-05-2021 20:17:47
+Got request to fetch user cosmin iacob, 25-05-2021 20:17:54
+User Cosmin Cosmin logged in successfully, 25-05-2021 20:17:54
+All shops were listed, 25-05-2021 20:17:57
+Got request to fetch shop kfc, 25-05-2021 20:17:59
+Got request to fetch shop mcdonald's, 25-05-2021 20:18:6
+Got request to fetch shop aag, 25-05-2021 20:18:31
+Got request to fetch shop mcdonald's, 25-05-2021 20:18:38
+Got request to fetch shop luca, 25-05-2021 20:18:43
+Got request to list the menu of Luca, 25-05-2021 20:18:45
+Luca's menu got listed, 25-05-2021 20:18:45
+Products got fetched successfully, 25-05-2021 20:20:22
+Menus fetched successfully, 25-05-2021 20:20:22
+Shops fetched successfully, 25-05-2021 20:20:22
+Users fetched successfully, 25-05-2021 20:20:22
+Got request to fetch user andrei blahovici, 25-05-2021 20:20:27
+User Andrei Andrei logged in successfully, 25-05-2021 20:20:27
+Got request to fetch shop luca, 25-05-2021 20:20:29
+Got request to list the menu of Luca, 25-05-2021 20:20:31
+Luca's menu got listed, 25-05-2021 20:20:31
+Got request to fetch luca traditional from Luca, 25-05-2021 20:20:37
+Andrei Blahovici added a Luca Traditional to the cart, 25-05-2021 20:20:37
+Andrei Blahovici listed his cart contents, 25-05-2021 20:20:39
+Products got fetched successfully, 25-05-2021 20:21:58
+Menus fetched successfully, 25-05-2021 20:21:58
+Shops fetched successfully, 25-05-2021 20:21:58
+Users fetched successfully, 25-05-2021 20:21:58
+Got request to fetch user andrei blahovici, 25-05-2021 20:22:11
+User Andrei Andrei logged in successfully, 25-05-2021 20:22:11
+All shops were listed, 25-05-2021 20:22:12
+Got request to fetch shop kfc, 25-05-2021 20:22:15
+Got request to list the menu of KFC, 25-05-2021 20:22:17
+KFC's menu got listed, 25-05-2021 20:22:17
+Got request to fetch twister classic from KFC, 25-05-2021 20:22:24
+Andrei Blahovici added a Twister Classic to the cart, 25-05-2021 20:22:24
+Got request to fetch apa plata from KFC, 25-05-2021 20:22:30
+Andrei Blahovici added a Apa plata to the cart, 25-05-2021 20:22:30
+Andrei Blahovici listed his cart contents, 25-05-2021 20:22:32
+Andrei Blahovici placed an order, 25-05-2021 20:22:39
+Got request to fetch the next order in the queue of orders, 25-05-2021 20:22:39
+Courier Claudiu Costeniuc took Andrei Blahovici's order, 25-05-2021 20:22:39
+Courier Claudiu Costeniuc called Andrei Blahovici, 25-05-2021 20:22:39
+Courier Claudiu Costeniuc delivered Andrei Blahovici's order, 25-05-2021 20:22:39
+Andrei Blahovici showed his order history, 25-05-2021 20:22:40
+Products got fetched successfully, 25-05-2021 20:24:30
+Menus fetched successfully, 25-05-2021 20:24:30
+Shops fetched successfully, 25-05-2021 20:24:30
+Users fetched successfully, 25-05-2021 20:24:30
+Got request to fetch user sebastian cucolas, 25-05-2021 20:24:34
+User Sebastian Sebastian logged in successfully, 25-05-2021 20:24:34
+Got request to fetch shop kfc, 25-05-2021 20:24:38
+Got request to list the menu of KFC, 25-05-2021 20:24:42
+KFC's menu got listed, 25-05-2021 20:24:42
+Got request to fetch nestea from KFC, 25-05-2021 20:24:44
+Sebastian Cucolas added a Nestea to the cart, 25-05-2021 20:24:44
+Got request to fetch booster from KFC, 25-05-2021 20:24:48
+Sebastian Cucolas added a Booster to the cart, 25-05-2021 20:24:48
+Sebastian Cucolas listed his cart contents, 25-05-2021 20:24:51
+Request from Sebastian Cucolas's account to check if nestea is in the cart, 25-05-2021 20:24:54
+Sebastian Cucolas removed a Nestea from the cart, 25-05-2021 20:24:54
+Sebastian Cucolas listed his cart contents, 25-05-2021 20:24:56
+Got request to fetch twister classic from KFC, 25-05-2021 20:25:2
+Sebastian Cucolas added a Twister Classic to the cart, 25-05-2021 20:25:2
+Sebastian Cucolas listed his cart contents, 25-05-2021 20:25:5
+Sebastian Cucolas placed an order, 25-05-2021 20:25:9
+Got request to fetch the next order in the queue of orders, 25-05-2021 20:25:9
+Courier Claudiu Costeniuc took Sebastian Cucolas's order, 25-05-2021 20:25:9
+Courier Claudiu Costeniuc called Sebastian Cucolas, 25-05-2021 20:25:9
+Courier Claudiu Costeniuc delivered Sebastian Cucolas's order, 25-05-2021 20:25:9
+Sebastian Cucolas showed his order history, 25-05-2021 20:25:10

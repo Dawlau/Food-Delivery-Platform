@@ -1,8 +1,9 @@
-package ro.localhost.Services;
+package fooddelivery.services;
 
-import ro.localhost.Models.Order;
-import ro.localhost.DataStructures.Pair;
-import ro.localhost.Models.User;
+import fooddelivery.models.Order;
+import fooddelivery.dataStructures.Pair;
+import fooddelivery.models.Product;
+import fooddelivery.models.User;
 
 import java.util.ArrayList;
 
@@ -27,5 +28,12 @@ public class OrdersService {
             return order;
         }
         return null;
+    }
+
+    public static void addProduct(Order order, Product product){
+
+        ArrayList<Product> products = order.getProducts();
+        products.add(product);
+        order.setProducts(products);
     }
 }
