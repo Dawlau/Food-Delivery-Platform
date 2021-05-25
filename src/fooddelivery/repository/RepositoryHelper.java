@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class RepositoryHelper {
 
-    private static RepositoryHelper repositoryHelper = new RepositoryHelper();
+    private static final RepositoryHelper repositoryHelper = new RepositoryHelper();
 
     private RepositoryHelper() {
     }

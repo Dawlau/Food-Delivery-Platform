@@ -25,7 +25,9 @@ public class DataSetup {
                 "date varchar(30)," +
                 "shopName varchar(30)," +
                 "courierFirstName varchar(30)," +
-                "courierLastName varchar(30)" +
+                "courierLastName varchar(30)," +
+                "userId int," +
+                "CONSTRAINT UID_FK FOREIGN KEY (userId) REFERENCES USERS(id) ON DELETE CASCADE ON UPDATE CASCADE" +
                 ")";
 
 
