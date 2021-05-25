@@ -1,22 +1,17 @@
 package fooddelivery.services;
 
-import fooddelivery.enums.ProductType;
 import fooddelivery.models.*;
-import fooddelivery.repository.*;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 
 public class UsersService {
 
-    private static ArrayList<User> users = new ArrayList<User>();
+    private final static ArrayList<User> users = new ArrayList<User>();
 
-    public static void fetchUsers_CSV(){
+    public static void fetchUsers(){
 
         CsvReader r = CsvReader.getInstance();
         String content = r.readFile("csvFiles/Users.csv");
@@ -40,16 +35,7 @@ public class UsersService {
             users.add(user);
         }
 
-        RepositoryDatabaseManager repositoryDatabaseManager = RepositoryDatabaseManager.getInstance();
-        repositoryDatabaseManager.addUsers(users);
-
         ActionTracer.traceAction("Users fetched successfully");
-    }
-
-    public static void fetchUsers(){
-
-        RepositoryDatabaseManager repositoryDatabaseManager = RepositoryDatabaseManager.getInstance();
-        users = repositoryDatabaseManager.loadUsers();
     }
 
     public static User findByName(String firstName, String lastName){
@@ -120,63 +106,14 @@ public class UsersService {
         OrdersService.addOrder(user, user.getCurrentOrder());
         user.getOrderHistory().add(new Order(user.getCurrentOrder()));
 
-        RepositoryOrders repositoryOrders = RepositoryOrders.getInstance();
-        repositoryOrders.insert(user.getCurrentOrder(), user.getId());
-
         ActionTracer.traceAction(user.getFirstName() + " " + user.getLastName() + " placed an order");
     }
 
     public static void showOrderHistory(User user) {
 
         System.out.println("Orders history:");
-
-        RepositoryOrders repositoryOrders = RepositoryOrders.getInstance();
-
-        ResultSet allOrders = repositoryOrders.selectByUserId(user.getId());
-
-        try{
-
-            ArrayList<Order> orders = new ArrayList<>();
-            while(allOrders.next()){
-
-                RepositoryOrders_Products repositoryOrders_products = RepositoryOrders_Products.getInstance();
-                ResultSet prods = repositoryOrders_products.selectByOrderId(allOrders.getInt("id"));
-
-                ArrayList<Product> products = new ArrayList<>();
-
-                while(prods.next()){
-
-                    RepositoryProducts repositoryProducts = RepositoryProducts.getInstance();
-                    ResultSet p = repositoryProducts.selectById(prods.getInt("productId"));
-                    p.next();
-
-                    Product product = new Product(
-                            p.getDouble("price"),
-                            p.getString("name"),
-                            p.getString("description"),
-                            (p.getString("type").equals("DRINK") ? ProductType.DRINK : ProductType.FOOD)
-                    );
-
-                    products.add(product);
-                }
-
-                Order order = new Order(
-                        allOrders.getString("date"),
-                        allOrders.getString("shopName"),
-                        allOrders.getString("courierFirstName"),
-                        allOrders.getString("courierLastName"),
-                        products
-                );
-
-                orders.add(order);
-            }
-
-            for(Order order : orders){
-                System.out.println(order);
-            }
-
-        }catch(SQLException e){
-            e.printStackTrace();
+        for(Order order: user.getOrderHistory()) {
+            System.out.println(order);
         }
 
         ActionTracer.traceAction(user.getFirstName() + " " + user.getLastName() + " showed his order history");

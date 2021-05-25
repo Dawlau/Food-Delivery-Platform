@@ -1,33 +1,24 @@
 package fooddelivery.services;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.*;
 
-import fooddelivery.config.DatabaseConfiguration;
 import fooddelivery.dataStructures.Pair;
 import fooddelivery.enums.ProductType;
 import fooddelivery.models.Product;
 import fooddelivery.models.Shop;
 import fooddelivery.models.ShopMenu;
-import fooddelivery.repository.RepositoryDatabaseManager;
-import fooddelivery.repository.RepositoryProducts;
-import fooddelivery.repository.RepositoryShopMenus;
-import fooddelivery.repository.RepositoryShops;
-
-import javax.xml.transform.Result;
 
 public class ShopsService {
 
-    static private TreeSet<Shop> shops = new TreeSet<>();
+    static final private TreeSet<Shop> shops = new TreeSet<>();
 
     // Map<ProductName, Product>
-    static private Map<String, Product> products = new HashMap<>();
+    static final private Map<String, Product> products = new HashMap<>();
 
     // product name, shop name
     static final private ArrayList<Pair<String, String>> shopsAndProducts = new ArrayList<>();
 
-    private static void fetch_Products_CSV(){
+    private static void fetch_Products(){
 
         CsvReader r = CsvReader.getInstance();
         String content = r.readFile("csvFiles/Products.csv");
@@ -47,19 +38,10 @@ public class ShopsService {
             products.put(product.getName(), product);
         }
 
-        RepositoryDatabaseManager repositoryDatabaseManager = RepositoryDatabaseManager.getInstance();
-        repositoryDatabaseManager.addProducts(products);
-
         ActionTracer.traceAction("Products got fetched successfully");
     }
 
-    public static void fetch_Products(){
-
-        RepositoryDatabaseManager repositoryDatabaseManager = RepositoryDatabaseManager.getInstance();
-        products = repositoryDatabaseManager.loadProducts();
-    }
-
-    private static void fetch_Menus_CSV(){
+    private static void fetch_Menus(){
 
         CsvReader r = CsvReader.getInstance();
         String content = r.readFile("csvFiles/ShopMenus.csv");
@@ -78,7 +60,7 @@ public class ShopsService {
         ActionTracer.traceAction("Menus fetched successfully");
     }
 
-    private static void fetch_Shops_CSV(){
+    private static void fetch_Shops(){
 
         CsvReader r = CsvReader.getInstance();
         String content = r.readFile("csvFiles/Shops.csv");
@@ -96,6 +78,7 @@ public class ShopsService {
                 }
             }
 
+
             Shop shop = new Shop(
                     fields[0], // name
                     new ShopMenu(menuProducts), // menu
@@ -110,51 +93,9 @@ public class ShopsService {
         ActionTracer.traceAction("Shops fetched successfully");
     }
 
-    public static void fetch_ShopsData_CSV(){ // will read from a file or a database in the future
-        fetch_Products_CSV();
-        fetch_Menus_CSV();
-        fetch_Shops_CSV();
-
-        RepositoryShops repositoryShops = RepositoryShops.getInstance();
-        RepositoryProducts repositoryProducts = RepositoryProducts.getInstance();
-        RepositoryShopMenus repositoryShopMenus = RepositoryShopMenus.getInstance();
-
-        RepositoryDatabaseManager repositoryDatabaseManager = RepositoryDatabaseManager.getInstance();
-        repositoryDatabaseManager.addShops(shops);
-
-        for(Pair<String, String> shop_product : shopsAndProducts){
-
-            String shopName = shop_product.getSecond();
-            String productName = shop_product.getFirst();
-
-            try {
-
-                ResultSet shopsSet = repositoryShops.selectByName(shopName);
-                ResultSet productsSet = repositoryProducts.selectByName(productName);
-
-                shopsSet.next();
-                productsSet.next();
-
-                int shopId = shopsSet.getInt("id");
-                int productId = productsSet.getInt("id");
-
-                repositoryShopMenus.insert(shopId, productId);
-            }catch (SQLException e){
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void fetch_Shops(){
-
-        RepositoryShops repositoryShops = RepositoryShops.getInstance();
-        RepositoryDatabaseManager repositoryDatabaseManager = RepositoryDatabaseManager.getInstance();
-
-        shops = repositoryDatabaseManager.loadShops();
-    }
-
-    public static void fetch_ShopsData(){
+    public static void fetch_ShopsData(){ // will read from a file or a database in the future
         fetch_Products();
+        fetch_Menus();
         fetch_Shops();
     }
 

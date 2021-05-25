@@ -33,7 +33,6 @@ public class Product { // maybe implement filters for price etc
 
     public Product(Product other){
         this(other.price, other.name, other.description, other.type);
-        this.setId(other.id);
     }
 
     public double getPrice() {
