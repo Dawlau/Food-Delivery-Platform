@@ -4,6 +4,7 @@ import fooddelivery.services.ActionTracer;
 
 public class Shop implements Comparable<Shop>{
 
+    private int id;
     private String name;
     private ShopMenu menu;
     private String phoneNumber;
@@ -29,6 +30,14 @@ public class Shop implements Comparable<Shop>{
         this.setPhoneNumber(phoneNumber);
         this.setAddress(address);
         this.setRating(rating);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public ShopMenu getMenu() {

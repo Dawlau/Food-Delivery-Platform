@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Order {
 
+    private int id;
     private String date;
     private String shopName;
     private String courierFirstName;
@@ -16,6 +17,14 @@ public class Order {
         this.setCourierFirstName(courierFirstName);
         this.setCourierLastName(courierLastName);
         this.setProducts(products);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setCourierFirstName(String courierFirstName) {

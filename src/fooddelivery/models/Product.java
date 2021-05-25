@@ -5,6 +5,7 @@ import java.util.Objects;
 
 public class Product { // maybe implement filters for price etc
 
+    private int id;
     private double price;
     private String name;
     private String description;
@@ -20,6 +21,14 @@ public class Product { // maybe implement filters for price etc
         this.setName(name);
         this.setDescription(description);
         this.setType(type);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Product(Product other){

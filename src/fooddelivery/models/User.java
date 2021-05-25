@@ -9,6 +9,7 @@ import java.util.HashMap;
 
 public class User extends Person {
 
+    private int id;
     private Cart cart;
     private ArrayList<Order> orderHistory;
     private Order currentOrder;
@@ -18,6 +19,14 @@ public class User extends Person {
         this.setCart(cart);
         this.setOrderHistory(orderHistory);
         this.setCurrentOrder(currentOrder);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Cart getCart() {
