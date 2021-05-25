@@ -1,14 +1,17 @@
 package fooddelivery;
 
+import fooddelivery.config.DataSetup;
 import fooddelivery.models.Courier;
 import fooddelivery.models.Product;
 import fooddelivery.models.Shop;
 import fooddelivery.models.User;
+import fooddelivery.repository.RepositoryHelper;
 import fooddelivery.services.ActionTracer;
 import fooddelivery.services.CouriersService;
 import fooddelivery.services.ShopsService;
 import fooddelivery.services.UsersService;
 
+import javax.xml.crypto.Data;
 import java.util.Scanner;
 
 public class App {
@@ -29,10 +32,16 @@ public class App {
         System.out.println();
     }
 
+    private static void fetchData_CSV(){
+
+        ShopsService.fetch_ShopsData_CSV();
+        UsersService.fetchUsers_CSV();
+    }
+
     private static void fetchData(){
 
-        ShopsService.fetch_ShopsData();
         UsersService.fetchUsers();
+        ShopsService.fetch_ShopsData();
         CouriersService.fetchCouriers();
     }
 
@@ -161,9 +170,15 @@ public class App {
 
     public static void run(){
 
+        //fetchData_CSV();
         fetchData();
 
         User user = login();
+
+        if(user.getFirstName().equals("admin") && user.getFirstName().equals("admin")){
+            AdminApp.run();
+            return ;
+        }
 
         System.out.println("Welcome " + user.getFirstName() + " " + user.getLastName() + "!");
 

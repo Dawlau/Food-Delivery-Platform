@@ -27,6 +27,14 @@ public class Order {
         this.id = id;
     }
 
+    public String getCourierFirstName() {
+        return courierFirstName;
+    }
+
+    public String getCourierLastName() {
+        return courierLastName;
+    }
+
     public void setCourierFirstName(String courierFirstName) {
         this.courierFirstName = courierFirstName;
     }
