@@ -1,123 +1,39 @@
-# Food-Delivery-Platform
-Made by Andrei Blahovici, Student at University of Bucharest
+# Food delivery platform
 
-## Main classes
+This is a prototype that can be used for further development of a Food delivery platform, written in Java.
 
-- Main : defines the entry point of the app
-- App : contains the implementation of the CLI
+## Features
 
-## Packages
+This is a CLI-based application and it integrates most of the functionalities a food delivery platform would need and is also compatible with MYSQL databases.
 
-### DataStructures
+### Login
 
-Contains the following classes:
+When you run the app you are prompted with a login dialog that will require you to enter you username and it will be checked against the database data.
+There are 2 types of users: admin and logged user and both have different types of action it can make.
 
-###### - Pair : implements a generic pair class
+### Admin functionalities
 
-### Enums
+The admin is responsible for the good functioning of the app so he can perform all kinds of CRUD operations on the database.
 
-Contains an Enum called ProductType which defines the values a product type can take (see the Product class)
+### Logged user functionalities
 
-### Interfaces
+The logged user can perform all kinds of operations such as shopping through the menus of all the available shops, add items to their own cart and perform orders. This is the list of the available options:
 
-Contains the following interfaces:
+1) List shops
+2) Select shop (by name)
+3) Print the current shop
+4) Show menu of current shop
+5) Add item to cart(by name)
+6) List the content of the cart
+7) Remove item from cart (by name)
+8) Place order
+9) Show order history
 
-###### - courierActions : defines the actions a courier can make
-````
-takeOrder : allows the courier to take an order from the list of orders
-callUser : allow the courier to call the user when he has arrived with the order
-````
-###### - userActions : defines the actions a user can make
+### Backend specifications
 
-````
-placeOrder : allows the user to place an order once he has added the items he wants to the cart 
-showOrderHistory : allows the user to see his own history of orders
-````
+The backend uses a MYSQL database and has an implementation for all the CRUD operations needed for all available models. In case the database is deleted, the backend allows the database to be easily repopulated by recreating the tables and populating them using the CSV files that can be found in the csvFiles directory. Also, backend presents a logging functionality for all the actions made in the application by any user. These can be found in the ActionsTrace.csv file.
 
-### Models
 
-Contains the following classes:
+## Final notes
 
-###### - Person : abstract class that defines the base for every employer and client
-````
-getters
-setters
-constructors
-````
-###### - User : extends the Person class and models the attributes and methods of a user
-````
-addToCart : allows a user to add items to its own cart
-removeFromCart : allows a user to remove items from its own cart
-listCart : lists the current items in the cart
-placeOrder: allows the user to place an order (pass to the service of orders and to the order history)
-showOrderHistory: list all the orders the user has made
-````
-###### - Cart : represents the current items the user wants to purchase
-````
-listCart : lists the contents of the cart
-add : add a Product to the cart
-remove : remove Product from the cart
-````
-###### - Order : models an order from the service of orders
-````
-toString : to print the order
-addProduct : add Product to the order
-getters
-setters
-````
-###### - Courier : extends de Person class and implements the interface for a courier
-````
-takeOrder: allows a courier to take an order from the service of orders
-callUser : allows the courier to call the user once he has arrived
-````
-###### - Shop : implements the model of a shop
-````
-compareTo : used in the shops service and compares two shops by name (used for alphabetical ordering)
-listMenu: list the contents of the menu
-````
-###### - ShopMenu : represents the menu of a shop
-````
-listMenu : lists the products available
-add : add a new Product to the menu
-remove : remove a Product from the menu
-findProductByName : allows for lookups in the menu (by name)
-````
-###### - Product : models the interface of a Product from a menu/order 
-````
-contains the enum ProductType
-equals, hashcode: implemented for usage in a hashmap
-toString : nice print of objects
-````
-
-### Services
-
-Contains the following classes:
-
-###### - CouriersService : service for courier maintenance
-````
-list of couriers
-fetchCouriers : method that gets the couriers available in the system
-getFirstCourier : get the first courier in the list of couriers
-findCourierByName : allows for search of a courier by name
-````
-###### - OrdersService : service for order distribution
-````
-list of type Pair that keeps track of orders and its respectiv user
-addOrder : add an order to the list
-getOrder : get the first order in the list and remove it
-````
-###### - ShopsService : service for shop administration
-````
-TreeSet of shops (ordered by name)
-fetch_ShopsData : method that gets the shops available in the system
-listShops : prints the list of shops
-findByName : search shop by name
-findProductByName : search for a specific product in a shop (by name)
-listShopMenu : list the menu of the shop
-````
-###### - UsersService
-````
-list of users
-fetchUsers : gets the users available in the system
-getFirstUser : get the first user in the list
-````
+I hope you find this prototype useful. If you find any bugs, feel free to submit them to blahoviciandrei1@gmail.com
